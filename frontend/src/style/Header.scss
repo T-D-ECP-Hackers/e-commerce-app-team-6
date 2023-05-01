@@ -1,0 +1,16 @@
+@import "Navigation";
+
+.page-header {
+  background-color: #005AA6;
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: 50% 50%;
+  align-items: center;
+  justify-items: center;
+}
+
+.page-header h1{
+  color: white;
+  font-size: 4vh;
+  cursor: pointer;
+}

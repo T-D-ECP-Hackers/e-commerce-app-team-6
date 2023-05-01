@@ -1,0 +1,51 @@
+.header-container {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 4%;
+}
+
+.checkout-page {
+  h1 {
+    background-color: lightgrey;
+    color: black;
+    display: flex;
+    cursor: pointer;
+    padding: 0.25%;
+    border-radius: 0.5em;
+  }
+}
+
+.basket {
+  display: flex;
+  column-gap: 0.5em;
+  color: white;
+  cursor: pointer;
+}
+
+.checkout {
+  height: 80%;
+  margin: 0 4% 0 4%;
+}
+
+.checkout-container {
+  height: 80%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+}
+
+.checkout-title {
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  padding: 2%;
+  font-weight: bolder;
+  border-bottom: 0.25em solid black;
+}
+
+.checkout-product {
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  margin: 2%;
+}

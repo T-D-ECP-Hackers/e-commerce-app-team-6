@@ -1,0 +1,63 @@
+
+Notes
+
+Products API -> http://localhost:8080/api/v1/products
+Products API With ID -> http://localhost:8080/api/v1/products/{add-id-without-curly-braces}
+
+// TODO - look at this
+Look at constructor based dependency injection
+Look at streams
+
+------------ PLAN ------------
+CRUD - Create Retrieve Update Delete
+
+Business Domain specific - products, users, checkout etc.
+
+product
+    productController.java
+    productService.java
+    ...
+
+products
+    |
+    |-- services
+    |-- model
+
+users
+    |
+    |--services
+    |--model
+
+Architectural specific - services, controllers, repos, model etc.
+
+services
+    |
+    |--users
+    |--products
+
+---------------------------------------------------------------------------------
+
+Controller:
+    - entry point from the browser to access the CRUD methods
+
+Product Service:
+    - contains the business logic, of CRUD operations
+
+Product Repo:
+    - store all the products
+    - DB, Cache
+
+---------------------------------------------------------------------------------
+
+Create:
+    - create a product, json body, ID generated, description, price, image url
+
+Retrieve:
+    - retrieve all products
+    - retrieve a product based on an ID
+
+Update:
+    - use a product ID to update an existing product
+
+Delete:
+    - delete a product based on ID

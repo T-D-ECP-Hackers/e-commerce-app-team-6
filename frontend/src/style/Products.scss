@@ -1,0 +1,32 @@
+.products-body {
+  height: 100%;
+  width: 100%;
+}
+
+.products {
+  height: 100%;
+  margin: 0 4% 0 4%;
+}
+
+.products-container {
+  height: 80%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+}
+
+.products-title {
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: 10% 25% 25% 10% 15% 15%;
+  padding: 2%;
+  font-weight: bolder;
+  border-bottom: 0.25em solid black;
+}
+
+.product {
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: 10% 25% 25% 10% 15% 15%;
+  margin: 2%;
+}
