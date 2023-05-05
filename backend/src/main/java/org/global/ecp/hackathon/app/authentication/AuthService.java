@@ -20,7 +20,7 @@ public class AuthService {
         final var username = authenticationRequest.getUsername();
         final var user = getUser(username);
         if (!isUserValid(user, authenticationRequest)) {
-            throw new UnauthenticatedUserException("Username or password is incorrect for user: '" + username + "'");
+            throw new UnauthenticatedUserException("Authentication details incorrect for user: '" + username + "'");
         }
         return true;
     }
@@ -30,7 +30,7 @@ public class AuthService {
         final var optionalUser = userRepository.getUserByUsername(username);
 
         if (optionalUser.isEmpty()) {
-            throw new UnauthenticatedUserException("User does not exist in db: '" + username + "'");
+            throw new UnauthenticatedUserException("Username does not exist in db: '" + username + "'");
         }
         return optionalUser.get();
     }
@@ -38,7 +38,6 @@ public class AuthService {
     private boolean isUserValid(final User user,
                                 final AuthenticationRequest authenticationRequest) {
 
-        return user.getUsername().equals(authenticationRequest.getUsername())
-                && user.getPassword().equals(authenticationRequest.getPassword());
+        return user.getPassword().equals(authenticationRequest.getPassword());
     }
 }

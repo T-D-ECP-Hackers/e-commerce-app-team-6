@@ -23,21 +23,12 @@ public class ProductService {
         return productRepository.save(product);
     }
 
-    private Product createProduct(final ProductDto productDto) {
-
-        return Product.builder()
-                      .name(productDto.getName())
-                      .description(productDto.getDescription())
-                      .price(productDto.getPrice())
-                      .build();
-    }
-
-    public List<Product> getAllProducts() {
+    public List<Product> getAll() {
 
         return productRepository.findAll();
     }
 
-    public Product getProductById(final Long id) {
+    public Product getById(final Long id) {
 
         final var optionalProduct = productRepository.getProductById(id);
         if (optionalProduct.isEmpty()) {
@@ -46,8 +37,17 @@ public class ProductService {
         return optionalProduct.get();
     }
 
-    public void deleteProductById(final Long id) {
+    public void deleteById(final Long id) {
 
         productRepository.deleteById(id);
+    }
+
+    private Product createProduct(final ProductDto productDto) {
+
+        return Product.builder()
+                      .name(productDto.getName())
+                      .description(productDto.getDescription())
+                      .price(productDto.getPrice())
+                      .build();
     }
 }

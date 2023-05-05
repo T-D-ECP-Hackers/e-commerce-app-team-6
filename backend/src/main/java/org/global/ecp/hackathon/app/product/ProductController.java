@@ -30,20 +30,20 @@ public class ProductController {
     @GetMapping
     public ResponseEntity<List<Product>> getAllProducts() {
 
-        return ResponseEntity.ok(productService.getAllProducts());
+        return ResponseEntity.ok(productService.getAll());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable final Long id) {
 
-        return ResponseEntity.ok(productService.getProductById(id));
+        return ResponseEntity.ok(productService.getById(id));
     }
 
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteProductId(@PathVariable final Long id) {
 
-        productService.deleteProductById(id);
+        productService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
 }

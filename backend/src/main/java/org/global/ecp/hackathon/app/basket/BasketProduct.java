@@ -1,7 +1,5 @@
 package org.global.ecp.hackathon.app.basket;
 
-import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,17 +9,18 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.global.ecp.hackathon.app.product.Product;
-import org.hibernate.Hibernate;
 
 @Getter
 @Setter
 @ToString
-@Builder
+@Builder(toBuilder = true)
+@EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -39,23 +38,4 @@ public class BasketProduct {
     @ManyToOne
     private Product product;
     private Integer count;
-
-    @Override
-    public boolean equals(final Object o) {
-
-        if (this == o) {
-            return true;
-        }
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) {
-            return false;
-        }
-        final BasketProduct that = (BasketProduct) o;
-        return id != null && Objects.equals(id, that.id);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return getClass().hashCode();
-    }
 }
