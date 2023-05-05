@@ -32,6 +32,4 @@ public class AuthController {
 
         return ResponseEntity.ok(authRegistrationService.register(userDto));
     }
-
-
 }

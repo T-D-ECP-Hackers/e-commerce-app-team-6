@@ -76,6 +76,7 @@ public class BasketService {
         final var basket = getBasketByUsername(username);
         basket.getBasketProducts().clear();
         setTotalProductsInBasket(basket);
+        log.info("User checked out their basket: '{}'", username);
         return basketRepository.save(basket);
     }
 

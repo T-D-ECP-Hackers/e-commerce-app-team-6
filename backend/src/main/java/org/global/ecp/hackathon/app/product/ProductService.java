@@ -2,10 +2,12 @@ package org.global.ecp.hackathon.app.product;
 
 import java.util.List;
 
+import lombok.extern.slf4j.Slf4j;
 import org.global.ecp.hackathon.app.exception.ProductAlreadyExistsException;
 import org.global.ecp.hackathon.app.exception.ProductNotFoundException;
 import org.springframework.stereotype.Service;
 
+@Slf4j
 @Service
 public class ProductService {
 
@@ -20,6 +22,7 @@ public class ProductService {
             throw new ProductAlreadyExistsException("Product already exists with the same name: '" + productDtoName + "'");
         }
         final var product = createProduct(productDto);
+        log.info("Created new product: '{}'", product);
         return productRepository.save(product);
     }
 
@@ -39,6 +42,7 @@ public class ProductService {
 
     public void deleteById(final Long id) {
 
+        log.info("Deleting product with ID: '{}'", id);
         productRepository.deleteById(id);
     }
 

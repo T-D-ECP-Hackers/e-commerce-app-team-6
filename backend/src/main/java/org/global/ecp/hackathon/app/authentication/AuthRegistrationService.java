@@ -26,6 +26,7 @@ public class AuthRegistrationService {
 
         final var user = createUser(userDto);
         userRepository.save(user);
+        log.info("User registered: '{}'", user.getUsername());
         return true;
     }
 

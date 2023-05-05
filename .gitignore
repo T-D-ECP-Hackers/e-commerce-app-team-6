@@ -6,7 +6,7 @@ build/
 !**/src/test/**/build/
 
 ### DB ###
-./testdb.mv.db
+!/testdb.mv.db
 
 ### STS ###
 .apt_generated

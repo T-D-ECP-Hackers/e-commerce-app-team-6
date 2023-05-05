@@ -1,10 +1,12 @@
 package org.global.ecp.hackathon.app.authentication;
 
+import lombok.extern.slf4j.Slf4j;
 import org.global.ecp.hackathon.app.exception.UnauthenticatedUserException;
 import org.global.ecp.hackathon.app.user.User;
 import org.global.ecp.hackathon.app.user.UserRepository;
 import org.springframework.stereotype.Service;
 
+@Slf4j
 @Service
 public class AuthService {
 
@@ -22,6 +24,7 @@ public class AuthService {
         if (!isUserValid(user, authenticationRequest)) {
             throw new UnauthenticatedUserException("Authentication details incorrect for user: '" + username + "'");
         }
+        log.info("User authenticated: '{}'", user.getUsername());
         return true;
     }
 
