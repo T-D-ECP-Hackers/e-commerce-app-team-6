@@ -3,6 +3,7 @@ package org.global.ecp.hackathon.app.basket;
 import java.util.ArrayList;
 import java.util.Optional;
 
+import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.global.ecp.hackathon.app.authentication.AuthService;
 import org.global.ecp.hackathon.app.product.Product;
@@ -26,6 +27,7 @@ public class BasketService {
         this.authService = authService;
     }
 
+    @Transactional
     public Basket getBasketByUsername(final String username) {
 
         final var user = authService.getUser(username);
@@ -37,6 +39,7 @@ public class BasketService {
         return optionalBasket.get();
     }
 
+    @Transactional
     public Basket addToBasket(final String username, final Long productId) {
 
         final var basket = getBasketByUsername(username);
@@ -53,6 +56,7 @@ public class BasketService {
         return basketRepository.save(basket);
     }
 
+    @Transactional
     public Basket removeFromBasket(final String username, final Long productId) {
 
         final var basket = getBasketByUsername(username);
@@ -71,6 +75,7 @@ public class BasketService {
         return basketRepository.save(basket);
     }
 
+    @Transactional
     public Basket checkout(final String username) {
 
         final var basket = getBasketByUsername(username);

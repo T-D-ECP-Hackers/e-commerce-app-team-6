@@ -9,12 +9,13 @@ import {goToProductsPage} from "../functions/navigation";
 export function fetchBasket(setCurrentBasket: React.Dispatch<React.SetStateAction<basket | null>>) {
 
     let username = getUser();
-
-    axios(basketUrl + `/${username}`).then(response => {
-        setCurrentBasket(response.data)
-    }).catch(error => {
-        console.error(error.response.data.message)
-    })
+    if (username !== null) {
+        axios(basketUrl + `/${username}`).then(response => {
+            setCurrentBasket(response.data)
+        }).catch(error => {
+            console.error(error.response.data.message)
+        })
+    }
 }
 
 export function addProductToBasket(productId: any,

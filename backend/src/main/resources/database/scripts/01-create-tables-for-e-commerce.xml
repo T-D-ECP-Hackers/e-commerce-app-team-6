@@ -1,0 +1,49 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="James Dunn" id="0q">
+        <comment>Create tables for e-commerce shop</comment>
+
+        <createTable tableName="baskets" schemaName="E_COMMERCE">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="username" type="varchar(255)"/>
+            <column name="totalProducts" type="integer"/>
+        </createTable>
+
+        <createTable tableName="basket_product" schemaName="E_COMMERCE">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="basket_id" type="bigint"/>
+            <column name="product_id" type="bigint"/>
+            <column name="count" type="integer"/>
+        </createTable>
+
+        <createTable tableName="basket_products" schemaName="E_COMMERCE">
+            <column name="basket_id" type="bigint"/>
+            <column name="product_id" type="bigint"/>
+        </createTable>
+
+        <createTable tableName="products" schemaName="E_COMMERCE">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)"/>
+            <column name="description" type="varchar(255)"/>
+            <column name="price" type="float(24)"/>
+        </createTable>
+
+        <createTable tableName="users" schemaName="E_COMMERCE">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="username" type="varchar(255)"/>
+            <column name="password" type="varchar(255)"/>
+            <column name="email" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

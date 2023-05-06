@@ -1,0 +1,14 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="AppApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="e-commerce-app.backend.main" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="org.global.ecp.hackathon.app.AppApplication" />
+    <option name="ALTERNATIVE_JRE_PATH" />
+    <option name="SHORTEN_COMMAND_LINE" value="NONE" />
+    <envs>
+      <env name="SPRING_PROFILES_ACTIVE" value="dev" />
+    </envs>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
