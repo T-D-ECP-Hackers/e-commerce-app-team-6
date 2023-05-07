@@ -60,6 +60,40 @@ This application has a few entry points which will be useful to know
 - I would suggest either using [MySql workbench](https://www.mysql.com/products/workbench/) or if using IntelliJ you can
   use the [built-in database management panel](https://www.jetbrains.com/help/idea/mysql.html)
 
+## Java 17 and SDKMAN
+
+This project uses Java 17, if you have Java 17 as your
+default [JDK](https://www.simplilearn.com/tutorials/java-tutorial/jdk-in-java#:~:text=JDK%20in%20Java%20is%20an%20abbreviation%20for%20Java%20Development%20Kit,Java%20Virtual%20Machine%20(JVM).)
+(Java Software Developer Kit) then ignore this section. Otherwise, this section will help you set up SDKMAN to install
+and use Java 17 for this project.
+
+Here is a link to install SDKMAN to your local machine -> [link here](https://sdkman.io/install).
+
+Once you have SDKMAN installed run the following commands in your terminal:
+
+```shell
+#Install Java 17 JDK
+sdk install java 17.0.5-tem 
+
+#Use Java 17 in your current terminal
+#Run this each time you start a new terminal to run this project in the terminal
+sdk use java 17.0.5-tem
+
+```
+
+If you are using IntelliJ, you can then set the Default JDK used for gradle which is used to build and run
+the project. Go to the following settings path:
+
+`Preferences | Build, Execution, Deployment | Build Tools | Gradle`
+
+Then select the new version of java you have just installed.
+
+Then go to:
+
+`File | Project Structure | Project | Project SDK`
+
+To set the SDK used for the project.
+
 ## Docker
 
 ### Dockerfile Structure
