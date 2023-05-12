@@ -1,8 +1,12 @@
 package org.global.ecp.hackathon.app.product;
 
 import java.util.List;
+import java.util.Optional;
 
 import lombok.extern.slf4j.Slf4j;
+import org.global.ecp.hackathon.app.basket.BasketProduct;
+import org.global.ecp.hackathon.app.basket.BasketProductRepository;
+import org.global.ecp.hackathon.app.basket.BasketService;
 import org.global.ecp.hackathon.app.exception.ProductAlreadyExistsException;
 import org.global.ecp.hackathon.app.exception.ProductNotFoundException;
 import org.springframework.stereotype.Service;
@@ -12,8 +16,18 @@ import org.springframework.stereotype.Service;
 public class ProductService {
 
     private final ProductRepository productRepository;
+    private final BasketProductRepository basketProductRepository;
+    private final BasketService basketService;
 
-    public ProductService(final ProductRepository productRepository) {this.productRepository = productRepository;}
+
+    public ProductService(final ProductRepository productRepository,
+                          final BasketProductRepository basketProductRepository,
+                          final BasketService basketService) {
+
+        this.productRepository = productRepository;
+        this.basketProductRepository = basketProductRepository;
+        this.basketService = basketService;
+    }
 
     public Product create(final ProductDto productDto) {
 
@@ -43,7 +57,12 @@ public class ProductService {
     public void deleteById(final Long id) {
 
         log.info("Deleting product with ID: '{}'", id);
-        productRepository.deleteById(id);
+        final var optionalBasketProduct = getOptionalBasketProductByProductId(id);
+        if (optionalBasketProduct.isPresent()) {
+            basketService.removeProductFromAllBaskets(id);
+            basketProductRepository.deleteById(optionalBasketProduct.get().getId());
+            productRepository.deleteById(id);
+        }
     }
 
     private Product createProduct(final ProductDto productDto) {
@@ -53,5 +72,15 @@ public class ProductService {
                       .description(productDto.getDescription())
                       .price(productDto.getPrice())
                       .build();
+    }
+
+    private Optional<BasketProduct> getOptionalBasketProductByProductId(final Long id) {
+
+        final var basketProducts = basketProductRepository.findAll();
+        return basketProducts.stream()
+                             .filter(basketProduct -> basketProduct.getProduct()
+                                                                   .getId()
+                                                                   .equals(id))
+                             .findFirst();
     }
 }
