@@ -1,5 +1,6 @@
 package org.global.ecp.hackathon.app.authentication;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.global.ecp.hackathon.app.user.UserDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -7,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+@Tag(name = "Authentication Endpoint", description = "Authenticate and register users stored in the database.")
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 public class AuthController {

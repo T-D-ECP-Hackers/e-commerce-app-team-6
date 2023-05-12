@@ -18,6 +18,10 @@ cd /Users/James.Dunn/Documents/hackathon/ecpHackathon/e-commerce-app
 
 This application has a few entry points which will be useful to know
 
+Please run the backend and go to -> http://localhost:8080/api/v1/swagger-ui/index.html for a 
+helpful UI that shows all the entry points for the backend and what each entry point accepts and 
+returns.
+
 ### Backend
 
 - The app backend is hosted on `http://localhost:8080`

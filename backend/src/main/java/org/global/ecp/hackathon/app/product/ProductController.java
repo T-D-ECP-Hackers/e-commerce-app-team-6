@@ -2,6 +2,7 @@ package org.global.ecp.hackathon.app.product;
 
 import java.util.List;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@Tag(name = "Product Endpoint", description = "All CRUD (create, retrieve, update and delete operations for products.")
 @RestController
 @RequestMapping("/products")
 @CrossOrigin(origins = "http://localhost:3000")
