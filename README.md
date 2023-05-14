@@ -1,4 +1,4 @@
-# e-commerce-app
+# e-commerce-app-test
 
 Repo for e-commerce application
 
