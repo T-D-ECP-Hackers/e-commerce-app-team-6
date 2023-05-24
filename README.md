@@ -128,3 +128,6 @@ docker-compose down
 #Remove all the docker images for the app and stop the app
 docker-compose down --rmi all
 ```
+Team Members
+
+Cherilynn Atkinson
