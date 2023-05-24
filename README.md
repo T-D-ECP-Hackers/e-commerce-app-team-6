@@ -131,3 +131,4 @@ docker-compose down --rmi all
 Team Members
 
 Cherilynn Atkinson
+Aislinn wright
