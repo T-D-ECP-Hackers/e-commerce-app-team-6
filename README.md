@@ -128,7 +128,36 @@ docker-compose down
 #Remove all the docker images for the app and stop the app
 docker-compose down --rmi all
 ```
+
+### <ins>Running the Backend Locally</ins>
+
+Change directory to /e-commerce-app-team-6.
+
+Check Java 17 is being used (follow instructions in "Java 17 and SDKMAN" Section above for installation)
+
+Run
+```shell
+  sdk use java 17.0.5-tem 
+
+  ./gradlew clean build
+  ./gradlew bootRun --args='--spring.profiles.active=dev'
+```
+Follow http://localhost:8080/api/v1/swagger-ui/index.html to see entry points for the backend.
+
+
+### <ins>Running the Frontend Locally</ins>
+
+Start an additional terminal window and change to /e-commerce-app-team-6/frontend.
+
+Run 
+```shell
+npm install
+npm run start  
+```
+The frontend is hosted on http://localhost:3000.
+
 Team Members
 
 Cherilynn Atkinson
+
 Aislinn wright
