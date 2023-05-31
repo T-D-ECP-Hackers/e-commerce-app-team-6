@@ -50,7 +50,7 @@ returns.
 ### Database
 
 - If using the `dev` profile then a h2 in-memory database will be used, to access this you can go to the following
-  endpoint: `http://localhost:8080/api/v1/h2-ui`
+  endpoint: `http://localhost:8098/api/v1/h2-ui`
 - Ensure you have inputted the following details on the login page:
     - Driver class - `org.h2.Driver`
     - JDBC URL - `jdbc:h2:file:./testdb`
