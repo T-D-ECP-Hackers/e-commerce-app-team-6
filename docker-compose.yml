@@ -23,7 +23,7 @@ services:
       - DB_HOST=db
       - DB_PORT=3306
     ports:
-      - '8080:8080'
+      - '8098:8080'
     links:
       - db
 
