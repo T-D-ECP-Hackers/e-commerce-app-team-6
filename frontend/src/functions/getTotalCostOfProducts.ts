@@ -9,7 +9,9 @@ export function getTotalCostOfProducts(currentBasket: basket | null) {
     let currentProductsInBasket = currentBasket?.basketProducts;
 
     if (currentProductsInBasket != null) {
-
+        for (let prdct of currentProductsInBasket) {
+            totalCost = totalCost + prdct.product.price;
+        }
     }
     return totalCost;
 }
