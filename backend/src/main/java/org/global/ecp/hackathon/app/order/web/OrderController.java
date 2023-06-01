@@ -46,8 +46,8 @@ public class OrderController {
 
     // TODO - Task 12: implement complete order method
     @PostMapping("/complete")
-    public boolean completeOrder(UUID orderId) {
-        return orderService.complete(orderId);
+    public void completeOrder(UUID orderId) {
+        orderService.complete(orderId);
     }
 
 }
