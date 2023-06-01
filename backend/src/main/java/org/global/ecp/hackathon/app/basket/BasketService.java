@@ -27,9 +27,8 @@ public class BasketService {
     public Basket addToBasket(final Long productId) {
 
         BasketProduct basketProduct = basketProductService.createBasketProduct(getBasket(), productId);
-        basketRepository.add(basketProduct);
         basketProduct.increaseQuantity();
-        return null;
+        return basketRepository.add(basketProduct);;
     }
 
     // TODO - Task 5: remove basketProduct from the basket using the basketRepository
