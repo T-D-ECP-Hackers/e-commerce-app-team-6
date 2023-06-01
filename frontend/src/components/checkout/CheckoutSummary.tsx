@@ -21,6 +21,11 @@ function CheckoutSummary({setShowCheckoutSummary}: { setShowCheckoutSummary: Rea
     function getShippingCost(totalCostOfItems: number) {
 
         let shippingCost = 0.0000;
+        shippingCost = shippingCost + totalCostOfItems * .1;
+        if (shippingCost > .5)
+        {
+            shippingCost = 0.0000;
+        }
         return roundToTwoDecimalPlaces(shippingCost);
     }
 
@@ -28,6 +33,7 @@ function CheckoutSummary({setShowCheckoutSummary}: { setShowCheckoutSummary: Rea
     function getTotalCost(totalCostOfItems: number, shippingCost: number) {
 
         let totalCost = 0.0000;
+        totalCost = totalCostOfItems +shippingCost;
         return roundToTwoDecimalPlaces(totalCost);
     }
 
