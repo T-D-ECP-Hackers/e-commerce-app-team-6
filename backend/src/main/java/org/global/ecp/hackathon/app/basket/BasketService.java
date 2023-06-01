@@ -36,7 +36,7 @@ public class BasketService {
 
         BasketProduct basketProduct = basketProductService.createBasketProduct(getBasket(), productId);
         basketProduct.decreaseQuantity();
-        return null;
+        return basketRepository.remove(basketProduct);
     }
 
     // TODO - Task 8: implement checkout method
