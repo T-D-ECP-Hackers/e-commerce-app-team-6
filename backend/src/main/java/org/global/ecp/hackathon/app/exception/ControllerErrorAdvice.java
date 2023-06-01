@@ -9,24 +9,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class ControllerErrorAdvice {
 
-    @ExceptionHandler({UnauthenticatedUserException.class})
-    public ResponseEntity<ErrorResponse> handleUnauthorizedExceptions(final Exception e) {
+    @ExceptionHandler({Exception.class})
+    public ResponseEntity<ErrorResponse> handleAllExceptions(final Exception e) {
 
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                             .body(new ErrorResponse(HttpStatus.UNAUTHORIZED, e.getMessage()));
-    }
-
-    @ExceptionHandler({UserAlreadyExistsException.class, ProductAlreadyExistsException.class})
-    public ResponseEntity<ErrorResponse> handleConflictExceptions(final Exception e) {
-
-        return ResponseEntity.status(HttpStatus.CONFLICT)
-                             .body(new ErrorResponse(HttpStatus.CONFLICT, e.getMessage()));
-    }
-
-    @ExceptionHandler({BasketNotFoundException.class, ProductNotFoundException.class})
-    public ResponseEntity<ErrorResponse> handleNotFoundExceptions(final Exception e) {
-
-        return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                             .body(new ErrorResponse(HttpStatus.NOT_FOUND, e.getMessage()));
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                             .body(new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage()));
     }
 }

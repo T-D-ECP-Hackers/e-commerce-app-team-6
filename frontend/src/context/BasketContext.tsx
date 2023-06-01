@@ -1,5 +1,5 @@
 import React, {createContext} from "react";
-import {basket} from "../model/productType";
+import {basket} from "../model/basketType";
 
 type BasketContextType = {
     currentBasket: basket | null,

@@ -12,10 +12,6 @@ export function goToCheckout(navigate: NavigateFunction) {
     navigate("/checkout");
 }
 
-export function goToLogin(navigate: NavigateFunction) {
-    navigate("/login");
-}
-
-export function goToSignUp(navigate: NavigateFunction) {
-    navigate("/signUp");
+export function goToOrdersPage(navigate: NavigateFunction) {
+    navigate("/orders");
 }

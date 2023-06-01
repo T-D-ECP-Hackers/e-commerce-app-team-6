@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import '../../style/App.scss';
 import {Outlet, useLocation} from "react-router-dom";
 import Header from "./Header";
-import {basket} from "../../model/productType";
+import {basket} from "../../model/basketType";
 import BasketContext from "../../context/BasketContext";
 import RootPage from "../pages/RootPage";
 
