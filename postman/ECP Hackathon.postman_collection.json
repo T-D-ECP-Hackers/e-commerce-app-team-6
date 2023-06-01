@@ -6,75 +6,10 @@
 	},
 	"item": [
 		{
-			"name": "Authentication",
-			"item": [
-				{
-					"name": "Authenticate User",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"username\": \"enterTheUsername\",\n    \"password\": \"enterThePassword\"\n} ",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/v1/authenticate",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"authenticate"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Register User",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"username\": \"username\",\n    \"password\": \"password\",\n    \"email\": \"email@email.com\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/v1/register",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"register"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
 			"name": "Basket",
 			"item": [
 				{
-					"name": "Get Basket For User",
+					"name": "Get Basket",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -91,17 +26,16 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/v1/basket/username",
+							"raw": "http://localhost:9000/api/v1/basket",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "9000",
 							"path": [
 								"api",
 								"v1",
-								"basket",
-								"username"
+								"basket"
 							]
 						}
 					},
@@ -122,17 +56,16 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/v1/basket/username?productId=1",
+							"raw": "http://localhost:9000/api/v1/basket?productId=1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "9000",
 							"path": [
 								"api",
 								"v1",
-								"basket",
-								"username"
+								"basket"
 							],
 							"query": [
 								{
@@ -159,17 +92,16 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/v1/basket/username?productId=1",
+							"raw": "http://localhost:9000/api/v1/basket?productId=1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "9000",
 							"path": [
 								"api",
 								"v1",
-								"basket",
-								"username"
+								"basket"
 							],
 							"query": [
 								{
@@ -196,18 +128,17 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/v1/basket/checkout/username",
+							"raw": "http://localhost:9000/api/v1/basket/checkout",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "9000",
 							"path": [
 								"api",
 								"v1",
 								"basket",
-								"checkout",
-								"username"
+								"checkout"
 							]
 						}
 					},
@@ -219,7 +150,7 @@
 			"name": "Product",
 			"item": [
 				{
-					"name": "Add A Product",
+					"name": "Create A Product",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -233,12 +164,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/v1/products",
+							"raw": "http://localhost:9000/api/v1/products",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "9000",
 							"path": [
 								"api",
 								"v1",
@@ -254,12 +185,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/v1/products",
+							"raw": "http://localhost:9000/api/v1/products",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "9000",
 							"path": [
 								"api",
 								"v1",
@@ -275,12 +206,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/v1/products/1",
+							"raw": "http://localhost:9000/api/v1/products/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "9000",
 							"path": [
 								"api",
 								"v1",
@@ -297,17 +228,73 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/v1/products/1",
+							"raw": "http://localhost:9000/api/v1/products/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "9000",
 							"path": [
 								"api",
 								"v1",
 								"products",
 								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Get All Orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/api/v1/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create An Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"basket\": {\n        \"basketProducts\" : [\n            {\n            \"product\": {\n                \"id\": 1,\n                \"name\": \"productName\",\n                \"description\": \"productDesc\",\n                \"price\": 1.0\n            },\n            \"quantity\": 1\n            }\n        ],\n        \"totalProducts\" : 1 \n    },\n    \"totalCost\": 0.0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/api/v1/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"v1",
+								"orders"
 							]
 						}
 					},

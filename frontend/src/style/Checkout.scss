@@ -2,17 +2,19 @@
   display: flex;
   justify-content: flex-end;
   padding-right: 4%;
+  padding-top: 1%;
 }
 
-.checkout-page {
-  h1 {
-    background-color: lightgrey;
-    color: black;
-    display: flex;
-    cursor: pointer;
-    padding: 0.25%;
-    border-radius: 0.5em;
-  }
+.checkout-button {
+  background-color: lightgrey;
+  color: black;
+  display: flex;
+  cursor: pointer;
+  padding: 0.25%;
+  border-radius: 0.5em;
+  width: 50%;
+  column-gap: 10%;
+  justify-content: center;
 }
 
 .basket {
@@ -48,4 +50,31 @@
   grid-template-rows: 100%;
   grid-template-columns: 20% 20% 20% 20% 20%;
   margin: 2%;
+}
+
+.checkout-page-summary {
+  padding: 5%;
+}
+
+.checkout-summary-container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  justify-items: center;
+}
+
+.checkout-summary {
+  width: 80%;
+  height: 50vh;
+  background-color: lightgrey;
+  border-radius: 0.5em;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkout-summary-buttons {
+  display: flex;
+  cursor: pointer;
+  column-gap: 10%;
 }

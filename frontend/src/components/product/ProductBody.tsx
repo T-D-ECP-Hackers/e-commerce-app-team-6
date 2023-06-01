@@ -13,12 +13,21 @@ function ProductBody() {
     useEffect(() => {
         fetchBasket(basket.setCurrentBasket);
         fetchProducts(setProducts);
-    }, []);
+    }, [basket.setCurrentBasket]);
 
     return (
         <div className="products-body">
-            <Products products={products}/>
+            <div className="products">
+                <div className="products-title">
+                    <div>ID</div>
+                    <div>Name</div>
+                    <div>Description</div>
+                    <div>Price</div>
+                </div>
+                <Products products={products}/>
+            </div>
         </div>
+
     );
 }
 

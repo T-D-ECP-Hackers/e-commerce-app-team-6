@@ -1,0 +1,47 @@
+.orders-body {
+  height: 100%;
+  width: 100%;
+}
+
+.orders {
+  height: 100%;
+  margin: 0 4% 0 4%;
+}
+
+.orders-container {
+  height: 80%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+}
+
+.orders-title {
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: 20% 20% 10% 10% 30% 10%;
+  padding: 2%;
+  font-weight: bolder;
+  border-bottom: 0.25em solid black;
+}
+
+.order {
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: 20% 20% 10% 10% 30% 10%;
+  margin: 2%;
+}
+
+.order-product {
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: 25% 25% 25% 25%;
+  margin: 2%;
+}
+
+.order-products-title {
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: 25% 25% 25% 25%;
+  margin: 2%;
+}
+

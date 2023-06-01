@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  fake-smtp-server:
+    image: gessnerfl/fake-smtp-server:latest
+    hostname: "fake-smtp-server"
+    restart: always
+    ports:
+      - 8025:8025      #expose smtp port
+      - 8080:8080      #expose web ui
+      - 8081:8081      #expose management api

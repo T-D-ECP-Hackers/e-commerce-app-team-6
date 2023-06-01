@@ -1,8 +1,8 @@
 import React from "react";
-import CheckoutProduct from "./CheckoutProduct";
-import {basket} from "../../model/productType";
+import {basket} from "../../model/basketType";
+import BasketProducts from "./BasketProducts";
 
-function CheckoutBody(props: { basket: basket}) {
+function CheckoutBody(props: { basket: basket }) {
 
     return (
         <div className="checkout">
@@ -11,17 +11,10 @@ function CheckoutBody(props: { basket: basket}) {
                 <div>Name</div>
                 <div>Description</div>
                 <div>Price</div>
-                <div>Amount</div>
+                <div>Quantity</div>
             </div>
             <div className="checkout-container">
-                {props.basket.basketProducts?.map((basketProduct, index) => {
-                    return (<CheckoutProduct key={index}
-                                             id={basketProduct.product.id}
-                                             name={basketProduct.product.name}
-                                             description={basketProduct.product.description}
-                                             price={basketProduct.product.price}
-                                             count={basketProduct.count}/>)
-                })}
+                <BasketProducts basketProducts={props.basket.basketProducts}/>
             </div>
         </div>
     );

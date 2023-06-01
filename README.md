@@ -18,20 +18,15 @@ cd /Users/James.Dunn/Documents/hackathon/ecpHackathon/e-commerce-app
 
 This application has a few entry points which will be useful to know
 
-Please run the backend and go to -> http://localhost:8080/api/v1/swagger-ui/index.html for a 
+Please run the backend and go to -> http://localhost:9000/api/v1/swagger-ui/index.html for a 
 helpful UI that shows all the entry points for the backend and what each entry point accepts and 
 returns.
 
 ### Backend
 
-- The app backend is hosted on `http://localhost:8080`
-- The API endpoint is `http://localhost:8080/api/v1/<specific-endpoint>`
-    - `e.g. http://localhost:8080/api/v1/products`
-
-#### Authentication Entry Points
-
-- `/authenticate` - entrypoint to authenticate a user
-- `/register` - entrypoint to register a user
+- The app backend is hosted on `http://localhost:9000`
+- The API endpoint is `http://localhost:9000/api/v1/<specific-endpoint>`
+    - `e.g. http://localhost:9000/api/v1/products`
 
 #### Product Entry Points
 
@@ -42,27 +37,14 @@ returns.
 - `/basket` - entrypoint to interact with baskets
 - `/basket/checkout` - entrypoint to checkout basket
 
+#### Order Entry Points
+
+- `/orders` -  entrypoint to interact with orders
+
 ### Frontend
 
 - The app frontend is hosted on `http://localhost:3000`
-- You can access this by typing this into any browser
-
-### Database
-
-- If using the `dev` profile then a h2 in-memory database will be used, to access this you can go to the following
-  endpoint: `http://localhost:8080/api/v1/h2-ui`
-- Ensure you have inputted the following details on the login page:
-    - Driver class - `org.h2.Driver`
-    - JDBC URL - `jdbc:h2:file:./testdb`
-    - username - `sa`
-    - password - **leave this blank**
-
-
-- If using the `prod` profile then a MySql database will be used, to access this you can use the following JDBC url to
-  connect: `jdbc:mysql://localhost:3308`
-- The username is `root` and the password is `password`
-- I would suggest either using [MySql workbench](https://www.mysql.com/products/workbench/) or if using IntelliJ you can
-  use the [built-in database management panel](https://www.jetbrains.com/help/idea/mysql.html)
+- You can access this by clicking this link when the frontend is running -> http://localhost:3000
 
 ## Java 17 and SDKMAN
 

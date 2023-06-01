@@ -4,7 +4,7 @@ COPY build/libs/backend-0.0.0.jar app.jar
 
 ENV JVM_XMX=1G
 
-EXPOSE 8080
+EXPOSE 9000
 
 ENTRYPOINT exec java \
         -Xmx${JVM_XMX} \
