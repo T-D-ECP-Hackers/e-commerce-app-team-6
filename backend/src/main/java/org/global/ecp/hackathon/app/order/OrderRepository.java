@@ -1,6 +1,7 @@
 package org.global.ecp.hackathon.app.order;
 
 import java.util.List;
+import java.util.UUID;
 
 import lombok.extern.slf4j.Slf4j;
 import org.global.ecp.hackathon.app.order.model.Order;
@@ -23,4 +24,8 @@ public class OrderRepository {
     }
 
     // TODO - Task 12: implement the getById method here
+
+    public void completeOrder(UUID orderId) {
+
+    }
 }
