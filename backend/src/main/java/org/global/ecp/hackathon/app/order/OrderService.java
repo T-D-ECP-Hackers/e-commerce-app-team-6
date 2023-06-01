@@ -11,13 +11,16 @@ import org.global.ecp.hackathon.app.email.EmailService;
 import org.global.ecp.hackathon.app.order.model.Order;
 import org.global.ecp.hackathon.app.order.model.OrderRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Slf4j
 @Service
 public class OrderService {
-
+    @Autowired
+    private JavaMailSender mailSender;
     @Autowired
     private OrderRepository orderRepository;
 
@@ -50,7 +53,17 @@ public class OrderService {
     public void complete(UUID orderId) {
         if (orderId != null ) {
             orderRepository.completeOrder(orderId);
+            sendEmailNotification(orderId);
         }
+    }
+    public void sendEmailNotification(UUID orderId) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo("task@submission.com");
+        message.setSubject("Order placed");
+        String body = "Order: " + orderId + "on " + now();
+        message.setText(body);
+
+        mailSender.send(message);
     }
 }
 

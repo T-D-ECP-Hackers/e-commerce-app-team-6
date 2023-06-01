@@ -8,6 +8,7 @@ import java.util.UUID;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ObjectUtils;
 import org.global.ecp.hackathon.app.order.model.Order;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Repository;
 
 @Slf4j
@@ -49,4 +50,5 @@ public class OrderRepository {
         orders.get(orderId).complete();
         log.info("Order {} completed", orderId);
     }
+
 }
