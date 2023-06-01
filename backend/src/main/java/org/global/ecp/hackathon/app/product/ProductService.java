@@ -1,6 +1,8 @@
 package org.global.ecp.hackathon.app.product;
 
 import java.util.List;
+import java.util.Random;
+import java.util.UUID;
 
 import lombok.extern.slf4j.Slf4j;
 import org.global.ecp.hackathon.app.product.model.Product;
@@ -27,8 +29,22 @@ public class ProductService {
 
     public Product create(final ProductDto productDto) {
 
-        // what happens if product name already exists
-        return null;
+        final var existingProducts = getAll();
+        for (var product : existingProducts) {
+            if(product.getName() == productDto.getName()) {
+                log.info("Product exists");
+                return product;
+            }
+        }
+        long largestId = 0;
+        for (var product : existingProducts) {
+            if(product.getId() > largestId) {
+                largestId = product.getId();
+            }
+        }
+        var generatedProduct = new Product(largestId +1, productDto.getName(), productDto.getDescription(), productDto.getPrice());
+        productRepository.add(generatedProduct);
+        return generatedProduct;
     }
 
     public void deleteById(final Long id) {
