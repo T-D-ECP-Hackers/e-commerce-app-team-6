@@ -6,8 +6,8 @@ import java.util.Map;
 import java.util.UUID;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.ObjectUtils;
 import org.global.ecp.hackathon.app.order.model.Order;
-import org.global.ecp.hackathon.app.product.model.Product;
 import org.springframework.stereotype.Repository;
 
 @Slf4j
@@ -35,4 +35,18 @@ public class OrderRepository {
     }
 
     // TODO - Task 12: implement the getById method here
+    public Order getById(UUID orderId) throws NullPointerException {
+        for (UUID id : orders.keySet()) {
+            if(id == orderId) {
+                return orders.get(orderId);
+            }
+        }
+        log.info("Order doesn't exist");
+        throw new NullPointerException("Order Id not exist");
+    }
+
+    public void completeOrder(UUID orderId) {
+        orders.get(orderId).complete();
+        log.info("Order {} completed", orderId);
+    }
 }

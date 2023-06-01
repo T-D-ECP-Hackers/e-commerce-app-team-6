@@ -12,6 +12,7 @@ import org.global.ecp.hackathon.app.order.model.Order;
 import org.global.ecp.hackathon.app.order.model.OrderRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Slf4j
 @Service
@@ -46,5 +47,10 @@ public class OrderService {
     }
 
     // TODO - Task 12: create a complete order method here
+    public void complete(UUID orderId) {
+        if (orderId != null ) {
+            orderRepository.completeOrder(orderId);
+        }
+    }
 }
 
