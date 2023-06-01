@@ -4,7 +4,11 @@ services:
     build: ./backend
     container_name: backend
     ports:
+      - '8080:8080'
+    links:
+      - db
       - '9000:9000'
+
 
   e-commerce-frontend:
     build: ./frontend

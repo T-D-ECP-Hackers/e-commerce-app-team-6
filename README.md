@@ -39,6 +39,13 @@ returns.
 
 #### Order Entry Points
 
+- If using the `dev` profile then a h2 in-memory database will be used, to access this you can go to the following
+  endpoint: `http://localhost:8080/api/v1/h2-ui`
+- Ensure you have inputted the following details on the login page:
+    - Driver class - `org.h2.Driver`
+    - JDBC URL - `jdbc:h2:file:./testdb`
+    - username - `sa`
+    - password - **leave this blank**
 - `/orders` -  entrypoint to interact with orders
 
 ### Frontend
@@ -110,3 +117,40 @@ docker-compose down
 #Remove all the docker images for the app and stop the app
 docker-compose down --rmi all
 ```
+
+### <ins>Running the Backend Locally</ins>
+
+Change directory to /e-commerce-app-team-6.
+
+Check Java 17 is being used (follow instructions in "Java 17 and SDKMAN" Section above for installation)
+
+Run
+```shell
+  sdk use java 17.0.5-tem 
+
+  ./gradlew clean build
+  ./gradlew bootRun --args='--spring.profiles.active=dev'
+```
+Follow http://localhost:8080/api/v1/swagger-ui/index.html to see entry points for the backend.
+
+
+### <ins>Running the Frontend Locally</ins>
+
+Start an additional terminal window and change to /e-commerce-app-team-6/frontend.
+
+Run 
+```shell
+npm install
+npm run start  
+```
+The frontend is hosted on http://localhost:3000.
+
+Team Members
+
+Cherilynn Atkinson
+
+Aislinn wright
+
+Zachariah Yarrow 
+
+Jyothyraj Sobhana
